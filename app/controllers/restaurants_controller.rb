@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find params[:id]
   end
 
   def new
@@ -15,22 +15,25 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new restaurant_params
     @restaurant.save
+
+    redirect_to @restaurant
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find params[:id]
   end
 
   def update
-  end
+    @restaurant = Restaurant.find params[:id]
+    @restaurant.update restaurant_params
 
-  def destroy
+    redirect_to @restaurant
   end
 
   private
 
   def restaurant_params
-
+    params.require(:restaurant).permit(:name, :category, :body, :img_url)
   end
 
 

@@ -1,3 +1,6 @@
+<div>
+
+</div>
 <h1><%= @restaurant.title %></h1>
 <p>
   Category: <%= @restaurant.category %>
@@ -6,3 +9,4 @@
   Description: <%= @restaurant.body %>
 </p>
 <%= link_to "Back to Restaurants", restaurants_path %>
+<%= link_to "Edit", edit_restaurant_path(@restaurant) %>

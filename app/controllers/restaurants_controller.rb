@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_filter :require_login, except: [:index, :show]
 
   def index
     @restaurants = Restaurant.all
@@ -6,6 +7,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find params[:id]
+    @comment = Comment.new
+    @comment.restaurant_id = @restaurant_id
   end
 
   def new

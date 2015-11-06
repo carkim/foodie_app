@@ -1,7 +1,7 @@
 <div>
 
 </div>
-<h1><%= @restaurant.title %></h1>
+<h1><%= @restaurant.name %></h1>
 <p>
   Category: <%= @restaurant.category %>
 </p>
@@ -10,3 +10,7 @@
 </p>
 <%= link_to "Back to Restaurants", restaurants_path %>
 <%= link_to "Edit", edit_restaurant_path(@restaurant) %>
+
+<h3>Comments</h3>
+<%= render partial: 'restaurants/comment', collection: @restaurant.comments %>
+<%= render partial: 'comments/form' %>

@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  root to: 'restaurants#index' 
 
-  resources :restaurants
+  resources :restaurants do
+    resources :comments
+  end
 
+  resources :users
+  resources :user_sessions, only: [ :new, :create, :destroy ]
+
+  get 'login' => 'user_sessions#new'
+  get 'logout' => 'user_sessions#destroy'
 end

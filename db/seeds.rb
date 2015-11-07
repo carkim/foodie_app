@@ -32,7 +32,30 @@ Restaurant.create([
   }
   ])
 
-  Comment.create([{
+User.create([{
+    username: "Will",
+    email: "will@ga.co",
+    password: "password"
+  },
+  {
+    username: "Adam",
+    email: "adam@ga.co",
+    password: "password"
+  },
+  {
+    username: "Jason",
+    email: "jason@ga.co",
+    password: "password"
+  },
+  {
+    username: "Caroline",
+    email: "ckim@ga.co",
+    password: "password"
+  }
+  ])
+
+
+Comment.create([{
       user_id: 1,
       body: "Awesome place. Try everything!",
       restaurant_id: 2

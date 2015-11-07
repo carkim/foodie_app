@@ -1,10 +1,10 @@
 <h3>Post a Comment</h3>
 
   <%= form_for [ @restaurant, @comment ] do |f| %>
-  <p>
+  <!-- <p>
     <%= f.label :user, "Username" %><br/>
     <%= f.text_field :user %>
-  </p>
+  </p> -->
   <p>
     <%= f.label :body, "Your Comment" %><br/>
     <%= f.text_area :body %>

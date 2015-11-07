@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   font-family: Helvetica, sans-serif;
+ }
+ .restaurants img {
+   width: 500px;
+ }

@@ -1,6 +1,5 @@
-<div>
+<% if logged_in? %>
 
-</div>
 <h1><%= @restaurant.name %></h1>
 <p>
   Category: <%= @restaurant.category %>
@@ -14,3 +13,5 @@
 <h3>Comments</h3>
 <%= render partial: 'restaurants/comment', collection: @restaurant.comments %>
 <%= render partial: 'comments/form' %>
+
+<% end %>

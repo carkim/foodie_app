@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #before_filter :require_login, except: [:new, :create, :index]
+  before_filter :require_login, except: [:new, :create, :index]
 
   def index
     @users = User.all
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @title = "Sign Up"
   end
 
   def edit
@@ -19,8 +20,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path
+      sign_in @user
+      redirect_to @user
     else
+      @title = "Sign Up"
       render new_user_path
     end
   end

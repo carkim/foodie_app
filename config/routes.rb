@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'restaurants#index' 
+  root to: 'restaurants#index'
 
   resources :restaurants do
     resources :comments
@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
   resources :user_sessions, only: [ :new, :create, :destroy ]
 
-  get 'login' => 'user_sessions#new'
-  get 'logout' => 'user_sessions#destroy'
+  get '/signup' => 'users#new'
+  get '/signin' => 'user_sessions#new'
+  get '/signout' => 'user_sessions#destroy'
 end

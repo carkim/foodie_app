@@ -1,12 +1,12 @@
+<div class="restaurants">
 <h1>Restaurants</h1>
-
+</div>
 <% @restaurants.each do |restaurant| %>
   <div class="restaurants">
     <img src="<%= restaurant.img_url %>"/>
       <p>
-        <%= link_to restaurant.name, restaurant_path(restaurant) %>
+        <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+        <em><%= restaurant.category %></em>
       </p>
   </div>
 <% end  %>
-
-<%= link_to "Create New Restaurant", new_restaurant_path %>

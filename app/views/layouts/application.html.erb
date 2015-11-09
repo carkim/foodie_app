@@ -7,14 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render partial: 'header' %>
+  <p class="flash"><%= flash.notice %></p>
+
   <div id="container">
-      <div id="content">
+    <div id="header">
+      <%= render 'layouts/header' %>
+    </div>
+    <div id="sidebar">
+        <ul class="sidebar-menu">
+          <li>Newest Restaurants</li>
+          <li>Top 10</li>
+          <li>By Cuisine Type</li>
+        </ul>
+        <%= link_to "Create New Restaurant", new_restaurant_path %>
+    </div>
+    <div id="content">
 
-        <%= yield %>
-        <hr>
+          <%= yield %>
 
-      </div>
+    </div>
+    <div id="footer">
+      <%= render 'layouts/footer' %>
+    </div>
   </div>
 </body>
 </html>

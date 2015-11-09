@@ -1,32 +1,55 @@
 class UserSessionsController < ApplicationController
-require 'UsserSessionsHelper'
+skip_before_action :login_required, :only => [:new, :create]
 
   def new
-    @title = "Sign In"
+    @user = User.new
   end
 
   def create
-    user = User.authenticate(params[:session][:email], params[:session][:password])
-    if user.nil?
-      flash.now[:error] = "Invalid email/password combination"
-      @title = "Sign In"
-      render 'new'
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password]) user_session[:user_id] = user.id
+      redirect_to root_path, :notice => "Welcome back, #{user.email}"
     else
-      sign_in user
-      redirect_to user
+      flash.now.alert = "Invalid email or password"
+      render "new"
     end
+  end
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
+  end
 
-    # if login(params[:email], params[:password])
-    #   redirect_back_or_to(restaurants_path, notice: 'Logged in successfully.')
-    # else
-    #   flash.now.alert = "Login failed."
+  private
+
+  def login(user)
+    session[:user_id] = nil
+  end
+end
+  # def new
+  #   @title = "Sign In"
+  # end
+  #
+  # def create
+  #   if login(params[:email], params[:password])
+  #     redirect_to(restaurants_path, flash.notice = 'Logged in successfully.')
+  #   else
+  #     flash.now.alert = "Login failed."
+  #     render 'new'
+  #   end
+    # user = User.authenticate(params[:user][:email], params[:user][:password])
+    # if user.nil?
+    #   flash.now[:error] = "Invalid email/password combination"
+    #   @title = "Sign In"
     #   render 'new'
+    # else
+    #   sign_in user
+    #   redirect_to user
     # end
   end
 
   def destroy
-    sign_out
-    redirect_to root_path
+    logout
+    redirect_to(:users, flash.notice = 'Logged out!')
   end
 
 end

@@ -1,21 +1,139 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- body {
-   font-family: Helvetica, sans-serif;
- }
- .restaurants img {
-   width: 500px;
- }
+body {
+ font-family: Helvetica, sans-serif;
+}
+
+/*div {
+    border: 1px solid #000;
+}*/
+
+#container {
+ position: relative;
+}
+
+#header {
+  background-image: url("banner.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-origin: content-box;
+  height: 144px;
+  padding: 40px;
+  position: relative;
+}
+
+#sidebar {
+  position: fixed;
+  margin-top: 50px;
+  width: 20%;
+  height: 100%;
+  float: left;
+  border-top: medium dotted black;
+}
+
+.sidebar-menu {
+  list-style: none;
+  font-size: 16px;
+}
+
+.sidebar-menu li {
+  padding: 0 0 20 0px;
+}
+
+#content {
+  margin-left: 22%;
+  width: 70%;
+  padding: 0 0 100 0px;
+  padding-bottom: 100px;*/
+}
+
+#contents h1 {
+  padding: 20px;
+}
+
+/*#footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 10px;
+  width: 310px;
+}*/
+
+.footer {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+}
+
+/* NAVIGATION */
+nav {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 5px;
+}
+
+/*nav ul li a{
+  padding: 0 5px;
+  font-weight: bold;
+}*/
+
+/*a.signup_button {
+  margin: auto;
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: #fff;
+  background: #006400;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px;
+}*/
+
+.restaurants {
+  /*margin: 10px;*/
+  border-bottom: medium dotted black;
+  /*background-color: #D7DADB;*/
+  padding: 20px;
+}
+
+.restaurants img {
+  width: 80%;
+}
+
+.description {
+  width: 75%;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 2em;
+}
+
+.comments {
+  width: 75%;
+  padding: 20px;
+}

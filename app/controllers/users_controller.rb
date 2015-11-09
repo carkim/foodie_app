@@ -1,37 +1,27 @@
 class UsersController < ApplicationController
-  #before_filter :require_login, except: [:new, :create, :index]
-  # before_filter :zero_authors_or_authenticated, only: [:new, :create]
-  #
-  # def zero_authors_or_authenticated
-  #   unless User.count == 0 || current_user
-  #     redirect_to root_path
-  #     return false
-  #   end
-  # end
+skip_before_action :authenticate, only: [:new, :create, :index, :show]
+
+  def new
+    @user = User.new
+  end
 
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find params[:id]
-  end
-
-  def new
-    @user = User.new
-    @title = "Sign Up"
-  end
-
-  def edit
+    if logged_in?
+      @user = User.find(session[:user_id])
+    else
+      redirect_to login_path
+    end
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      sign_in @user
       redirect_to @user
     else
-      @title = "Sign Up"
       render new_user_path
     end
   end

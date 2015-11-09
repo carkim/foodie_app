@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
-  # authenticates_with_sorcery!
 
   has_many :comments
 
-  validates_confirmation_of :password, message: "should match confirmation", if: :password
+  validates :username, presence: true, length: {maximum: 50}
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: {maximum: 255}, format: { with: EMAIL_REGEX }, uniqueness: {case_sensitive: false}
+  has_secure_password
+  validates :password, presence: true, length: {minimum: 6}
 end
 
 

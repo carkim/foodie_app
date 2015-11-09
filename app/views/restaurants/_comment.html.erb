@@ -1,6 +1,6 @@
 <div>
-    <h4>Comment by <%= comment.user.username %></h4>
-    <p class="comment">
+    <h5>Comment by <%= comment.user.username %></h5>
+    <p>
         <%= comment.body %>
     </p>
     <p>Posted <%= distance_of_time_in_words(comment.restaurant.created_at, comment.created_at) %> later</p>

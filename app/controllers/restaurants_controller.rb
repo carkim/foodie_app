@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   # before_filter :require_login, except: [:index, :show]
-  skip_before_action :login_required, :only => [:index]
+  #skip_before_action :login_required, :only => [:index]
 
   def index
     @restaurants = Restaurant.all
